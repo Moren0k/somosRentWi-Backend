@@ -1,8 +1,8 @@
 namespace SomosRentWi.Domain.Enums;
 
-public enum CarValidationStatus
+public enum CarStatus
 {
-    Pending,
-    Validated,
-    Invalid,
+    Available,
+    InUse,
+    NotAvailable,
 }

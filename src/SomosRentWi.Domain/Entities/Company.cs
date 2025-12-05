@@ -1,11 +1,10 @@
+using SomosRentWi.Domain.Common;
 using SomosRentWi.Domain.Enums;
 
 namespace SomosRentWi.Domain.Entities;
 
-public class Company
+public class Company : BaseEntity
 {
-    public int Id { get; set; }
-    
     public int UserId { get; set; }
     public User? User { get; set; }
     
@@ -21,9 +20,6 @@ public class Company
     public CompanyPlan CompanyPlan { get; set; } = CompanyPlan.None;
     public CompanySubscriptionStatus SubscriptionStatus { get; set; } = CompanySubscriptionStatus.Inactive;
     
-    public DateTime StartSubscriptionDate { get; set; } = DateTime.MinValue;
-    public DateTime EndSubscriptionDate { get; set; } = DateTime.MinValue;
-    
-    public DateTime RegisteredDate { get; set; } = DateTime.UtcNow;
-    public DateTime LastUpdatedDate { get; set; } = DateTime.MinValue;
+    public DateTime? StartSubscriptionDate { get; set; }
+    public DateTime? EndSubscriptionDate { get; set; }
 }

@@ -1,11 +1,10 @@
+using SomosRentWi.Domain.Common;
 using SomosRentWi.Domain.Enums;
 
 namespace SomosRentWi.Domain.Entities;
 
-public class Car
+public class Car : BaseEntity
 {
-    public int Id { get; set; }
-    
     public int CompanyId { get; set; }
     public Company? Company { get; set; }
     
@@ -15,18 +14,13 @@ public class Car
     public string Plate { get; set; } = string.Empty;
     public string Color { get; set; } = string.Empty;
     
-    public decimal ComercialValue { get; set; }
-    public decimal ReferencePricePerDay { get; set; }
-    public decimal MaxAllowedPricePerDay { get; set; }
-    public decimal PricePerDay { get; set; } // Price Per Day
+    public decimal CommercialValue { get; set; }
+    public decimal PricePerDay { get; set; }
     
-    public DateTime SoatExpirationDate { get; set; } = DateTime.MinValue;
-    public DateTime TechInspectionExpirationDate { get; set; } = DateTime.MinValue;
+    public DateTime SoatExpirationDate { get; set; }
+    public DateTime TechExpirationDate { get; set; }
     
     public string MainPhotoUrl { get; set; } = string.Empty;
 
-    public CarValidationStatus ValidationStatus { get; set; } = CarValidationStatus.Pending;
-    public bool IsAvailable { get; set; }
-    
-    public DateTime RegisteredAt { get; set; } = DateTime.UtcNow;
+    public CarStatus Status { get; set; } = CarStatus.Available;
 }

@@ -1,18 +1,17 @@
+using SomosRentWi.Domain.Common;
 using SomosRentWi.Domain.Enums;
 
 namespace SomosRentWi.Domain.Entities;
 
-public class Client
+public class Client : BaseEntity
 {
-    public int Id { get; set; }
-
     public int UserId { get; set; }
     public User? User { get; set; }
 
     public string FirstName { get; set; } = string.Empty;
     public string LastName { get; set; } = string.Empty;
 
-    public string DocumentType { get; set; } = string.Empty;
+    public ClientDocumentType DocumentType { get; set; }
     public string DocumentNumber { get; set; } = string.Empty;
 
     public DateTime BirthDate { get; set; }
@@ -23,7 +22,6 @@ public class Client
 
     public ClientVerificationStatus VerificationStatus { get; set; } = ClientVerificationStatus.Pending;
     public ClientHistoryStatus HistoryStatus { get; set; } = ClientHistoryStatus.NoHistory;
-    public DateTime RegisteredAt { get; set; } = DateTime.UtcNow;
     
     public string UrlSelfiePhoto { get; set; } = string.Empty; // Selfie Photo
     public string UrlDocumentFront { get; set; } = string.Empty; // Document Front
